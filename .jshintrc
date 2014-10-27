@@ -1,0 +1,20 @@
+{
+  "camelcase": true,  
+  "eqeqeq": true,
+  "freeze": true,
+  "indent": 2,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "undef": true,
+  "unused": false, // because warns on $.each and such
+  "maxdepth": 3,
+  "maxparams": 3,
+  "maxstatements": 50,
+  "maxlen": 80,
+  "eqnull": true,
+  "funcscope": true,
+  "node": true,
+  "sub": true,
+  "browser": true
+}

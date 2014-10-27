@@ -1,0 +1,69 @@
+{
+  "name": "biojs-vis-gprofiler",
+  "description": "Retrieve most relevant GO terms from g:Profiler",
+  "version": "0.1.0",
+  "homepage": "https://github.com//biojs-vis-gprofiler",
+  "author": {
+    "name": "Tambet Arak",
+    "email": "biit.support@lists.ut.ee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com//biojs-vis-gprofiler.git"
+  },
+  "bugs": {
+    "url": "https://github.com//biojs-vis-gprofiler/issues"
+  },
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "https://github.com//biojs-vis-gprofiler/blob/master/LICENSE"
+    }
+  ],
+  "main": "lib/biojs-vis-gprofiler",
+  "scripts": {
+    "build": "gulp build",
+    "build-browser": "gulp build-browser",
+    "build-browser-min": "gulp build-browser-gzip",
+    "prepublish": "gulp",
+    "test": "gulp test",
+    "lint": "gulp lint",
+    "doc": "gulp build-doc",
+    "watch": "gulp watch",
+    "clean": "gulp clean"
+  },
+  "dependencies": {
+    "backbone-events-standalone": "^0.2.4",
+    "d3-browserify": "^3.4.11",
+    "jquery-browserify": "^1.8.1",
+    "stopwords": "0.0.4",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {
+    "browserify": "^6.2.0",
+    "chai": "^1.9.2",
+    "gulp": "^3.8.9",
+    "gulp-chmod": "^1.2.0",
+    "gulp-gzip": "0.0.8",
+    "gulp-jsdoc-to-markdown": "^0.1.5",
+    "gulp-jshint": "^1.8.5",
+    "gulp-mocha": "^1.1.1",
+    "gulp-mocha-phantomjs": "^0.5.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-streamify": "0.0.5",
+    "gulp-uglify": "^1.0.1",
+    "gulp-util": "^3.0.1",
+    "gulp-watch": "^1.1.0",
+    "mocha": "^2.0.1",
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.1.0"
+  },
+  "shields": {},
+  "sniper": {},
+  "keywords": [
+    "gprofiler",
+    "geneontology",
+    "go",
+    "biojs"
+  ]
+}
