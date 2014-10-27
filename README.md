@@ -1,9 +1,6 @@
 # biojs-vis-gprofiler
 
 [![NPM version](http://img.shields.io/npm/v/biojs-vis-gprofiler.svg)](https://www.npmjs.org/package/biojs-vis-gprofiler)
-[![Build Status](https://secure.travis-ci.org//biojs-vis-gprofiler.png?branch=master)](http://travis-ci.org//biojs-vis-gprofiler)
-[![Coverage Status](https://img.shields.io/coveralls//biojs-vis-gprofiler.svg)](https://coveralls.io/r//biojs-vis-gprofiler)
-[![NPM version](https://badge-me.herokuapp.com/api/npm/biojs-vis-gprofiler.png)](http://badges.enytc.com/for/npm/biojs-vis-gprofiler)
 
 Retrieve most relevant GO terms from g:Profiler and render these as a string 
 cloud.
@@ -69,16 +66,16 @@ Construct a BioJSVisGProfiler object.
  in selector format _required_  
 - width `int` - Width of the rendered cloud, in pixels
 _default_: 300  
-- height `int` - Height of the rendered cloud, in pixels 
+- height `int` - Height of the rendered cloud, in pixels
 _default_: 300  
 - maxN `int` - Max number of strings to display  
 - maxTermLen `int` - Max length of a term description, keep this at a
  reasonable value to ensure all terms are displayed. No effect in useTerms
  is false.  
-- useTerms `boolean` - Display whole functional terms instead of 
+- useTerms `boolean` - Display whole functional terms instead of
  single words  
 - sizer <code>[sizerCb](#sizerCb)</code> - Callback function for computing
- the point size of a string based on passed score of the string and a scaling 
+ the point size of a string based on passed score of the string and a scaling
  value dependent on the cloud dimensions.  
 
 **Example**  
@@ -88,7 +85,7 @@ var gp = require('biojs-vis-gprofiler');
 gp = new gp({
   container  : "#myContainer",
   width      : 600,
-  height     : 600,	
+  height     : 600,
 });
 
 gp.on("onrender", function() {
@@ -111,8 +108,8 @@ Query g:Profiler and render a cloud.
 
 **Properties**
 
-- organism `string` - The organism name in g:Profiler format, 
- generally the first character of the genus + species in lowercase. E.g. 
+- organism `string` - The organism name in g:Profiler format,
+ generally the first character of the genus + species in lowercase. E.g.
  "Mus musculus" -> "mmusculus".  
 - query `string` | `Array` - a query symbol or a list thereof.  
 
@@ -125,7 +122,7 @@ Fired when cloud rendering has completed.
 **Params**
 
 - score `int` - A score for the string (sum of all scores == 1)  
-- scaling `int` - A constant scaling value proportional to the size of 
+- scaling `int` - A constant scaling value proportional to the size of
  the rendering area  
 
 **Type**: `function`  
@@ -134,12 +131,12 @@ Fired when cloud rendering has completed.
 ## Contributing
 
 Please submit all issues and pull requests to the
-[/biojs-vis-gprofiler](http://github.com//biojs-vis-gprofiler) repository!
+[tambeta/biojs-vis-gprofiler](http://github.com/tambeta/biojs-vis-gprofiler) repository!
 
 ## Support
 
 If you have any problems or a suggestion please open an issue
-[here](https://github.com//biojs-vis-gprofiler/issues).
+[here](https://github.com/tambeta/biojs-vis-gprofiler/issues).
 
 ## License 
 

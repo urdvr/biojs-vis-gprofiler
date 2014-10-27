@@ -2,25 +2,25 @@
   "name": "biojs-vis-gprofiler",
   "description": "Retrieve most relevant GO terms from g:Profiler",
   "version": "0.1.0",
-  "homepage": "https://github.com//biojs-vis-gprofiler",
+  "homepage": "https://github.com/tambeta/biojs-vis-gprofiler",
   "author": {
     "name": "Tambet Arak",
     "email": "biit.support@lists.ut.ee"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com//biojs-vis-gprofiler.git"
+    "url": "git://github.com/tambeta/biojs-vis-gprofiler.git"
   },
   "bugs": {
-    "url": "https://github.com//biojs-vis-gprofiler/issues"
+    "url": "https://github.com/tambeta/biojs-vis-gprofiler/issues"
   },
   "licenses": [
     {
       "type": "BSD",
-      "url": "https://github.com//biojs-vis-gprofiler/blob/master/LICENSE"
+      "url": "https://github.com/tambeta/biojs-vis-gprofiler/blob/master/LICENSE"
     }
   ],
-  "main": "lib/biojs-vis-gprofiler",
+  "main": "lib/biojsvisgprofiler.js",
   "scripts": {
     "build": "gulp build",
     "build-browser": "gulp build-browser",

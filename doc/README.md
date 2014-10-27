@@ -1,9 +1,6 @@
 # biojs-vis-gprofiler
 
 [![NPM version](http://img.shields.io/npm/v/biojs-vis-gprofiler.svg)](https://www.npmjs.org/package/biojs-vis-gprofiler)
-[![Build Status](https://secure.travis-ci.org//biojs-vis-gprofiler.png?branch=master)](http://travis-ci.org//biojs-vis-gprofiler)
-[![Coverage Status](https://img.shields.io/coveralls//biojs-vis-gprofiler.svg)](https://coveralls.io/r//biojs-vis-gprofiler)
-[![NPM version](https://badge-me.herokuapp.com/api/npm/biojs-vis-gprofiler.png)](http://badges.enytc.com/for/npm/biojs-vis-gprofiler)
 
 Retrieve most relevant GO terms from g:Profiler and render these as a string 
 cloud.
@@ -38,12 +35,12 @@ gp.render({
 ## Contributing
 
 Please submit all issues and pull requests to the
-[/biojs-vis-gprofiler](http://github.com//biojs-vis-gprofiler) repository!
+[tambeta/biojs-vis-gprofiler](http://github.com/tambeta/biojs-vis-gprofiler) repository!
 
 ## Support
 
 If you have any problems or a suggestion please open an issue
-[here](https://github.com//biojs-vis-gprofiler/issues).
+[here](https://github.com/tambeta/biojs-vis-gprofiler/issues).
 
 ## License 
 
