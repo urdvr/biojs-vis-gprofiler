@@ -3,30 +3,52 @@
 [![NPM version](http://img.shields.io/npm/v/biojs-vis-gprofiler.svg)](https://www.npmjs.org/package/biojs-vis-gprofiler)
 [![Build Status](https://travis-ci.org/tambeta/biojs-vis-gprofiler.svg?branch=master)](https://travis-ci.org/tambeta/biojs-vis-gprofiler)
 
-Retrieve most relevant GO terms from g:Profiler and render these as a string 
+Retrieve most relevant GO terms from g:Profiler and render these as a string
 cloud.
 
 ## Getting Started
 
-Install the module with: `npm install biojs-vis-gprofiler`
+Install the module with: `npm install biojs-vis-gprofiler`. Copy the minified
+module `build/biojsvisgprofiler.min.js` to your scripts directory.
 
-```javascript
-var gp = require('biojs-vis-gprofiler');
+Usage without a module loader:
 
-gp = new gp({
-  container  : "#myContainer",
-  width      : 600,
-  height     : 600,	
+```html
+<script src="/path/to/biojsvisgprofiler.min.js"></script>
+<script type="text/javascript">
+
+document.addEventListener("DOMContentLoaded", function(e) {
+  gp = new biojsVisGprofiler({
+    container : "#myContainer",
+    width     : 600,
+    height		: 600,
+  });
+
+  gp.on("onrender", function() {
+    console.log("caught render event");
+  });
+
+  gp.render({
+    query     : ["swi4", "swi6", "mbp1", "mcm1", "fkh1", "fkh2"],
+    organism  : "scerevisiae",
+  });
 });
 
-gp.on("onrender", function() {
-  console.log("caught render event");
+</script>
+```
+
+If using a module loader such as [require.js](http://requirejs.org/docs/start.html)
+`require` the module from within your application or directly, such as:
+
+```html
+<script src="require.js"></script>
+<script>
+
+require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
+	...
 });
 
-gp.render({
-  query    : ["swi4", "swi6", "mbp1"],
-  organism : "scerevisiae",
-});
+</script>
 ```
 
 ## Documentation
@@ -43,7 +65,7 @@ Please submit all issues and pull requests to the
 If you have any problems or a suggestion please open an issue
 [here](https://github.com/tambeta/biojs-vis-gprofiler/issues).
 
-## License 
+## License
 
 The BSD License
 

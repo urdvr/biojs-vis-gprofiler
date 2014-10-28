@@ -62,9 +62,10 @@ gulp.task('build', ['build-browser', 'build-browser-gzip', 'build-doc']);
 
 gulp.task('build-browser',['init'], function() {
   
-  // browserify debug
+  // browserify debug; note that this does not 
+  // build a standalone bundle
   
-  var b = browserify({debug: true,hasExports: true});
+  var b = browserify({debug: true, hasExports: true});
   
   exposeBundles(b);
   return b.bundle()

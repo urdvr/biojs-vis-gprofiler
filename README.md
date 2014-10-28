@@ -3,38 +3,49 @@
 [![NPM version](http://img.shields.io/npm/v/biojs-vis-gprofiler.svg)](https://www.npmjs.org/package/biojs-vis-gprofiler)
 [![Build Status](https://travis-ci.org/tambeta/biojs-vis-gprofiler.svg?branch=master)](https://travis-ci.org/tambeta/biojs-vis-gprofiler)
 
-Retrieve most relevant GO terms from g:Profiler and render these as a string 
+Retrieve most relevant GO terms from g:Profiler and render these as a string
 cloud.
 
 ## Getting Started
 
-Install the module with: `npm install biojs-vis-gprofiler`. Copy the minified 
-module to your scripts directory.
+Install the module with: `npm install biojs-vis-gprofiler`. Copy the minified
+module `build/biojsvisgprofiler.min.js` to your scripts directory.
 
 Usage without a module loader:
 
 ```html
 <script src="/path/to/biojsvisgprofiler.min.js"></script>
-<script>
+<script type="text/javascript">
 
 document.addEventListener("DOMContentLoaded", function(e) {
-	gp = new biojsVisGprofiler({
-		container	: "#mydiv",
-		width		: 600,
-		height		: 300,
-		maxN		: 0,
-	});
+  gp = new biojsVisGprofiler({
+    container : "#myContainer",
+    width     : 600,
+    height		: 600,
+  });
 
-	gp.on("onrender", function() {
-		console.log("caught render evt");
-	});
+  gp.on("onrender", function() {
+    console.log("caught render event");
+  });
 
-	gp.render({
-		//query		: "YGL003C YOR233W YAL024C YJL090C YOR372C YAL021C YNL068C YGL086W YDL074C YJL194W YGL240W YDR364C YGR108W YMR168C YOR178C YNL172W YFL009W YOR066W YGL116W YMR135C YDL056W YLR361C YOR026W YDL132W YHR166C YPL194W YGL060W YKL185W YIL031W YMR055C YML109W YER133W YDR130C YFR036W YDL155W YJR053W YCL061C YGL173C YHR115C YER167W YJR090C YDR363W YJL030W YLR127C YAL040C YJR017C YIL131C YBR158W YNL116W YPR119W YFL029C YJL013C YPR120C YPL020C YDL064W YLR310C YDR054C YLR210W YDR247W YGR109C YMR036C YIR025W YDR002W YER016W YGR188C YGL190C YMR273C YIL046W YOR083W YDL028C YIL135C",
-		//query		: "IPO5 LAMTOR5 LAMTOR3 COL5A2 MMP2 PDGFC UBR1 DNMT3A COL1A2 COL4A6 CPEB4 COL6A1 RPTOR CDH1 SH3BP4 COL4A1 DNMT1 COL16A1 TNF ZEB1 COL1A1 CPEB1 PDGFRA UBR2 LAMTOR2 LAMTOR4 DNMT3B BCL2L1 NSMF PDGFD LAMTOR1 RRAGB CYBA RRAGD CAPN2 RRAGC NEURL1 MMP3 SOCS1 CEBPB COL3A1 CPEB3 RRAGA",
-		query		: "swi4 swi6 mbp1 mcm1 fkh1 fkh2 ndd1 swi5 ace2",
-		organism	: "scerevisiae",
-	});
+  gp.render({
+    query     : ["swi4", "swi6", "mbp1", "mcm1", "fkh1", "fkh2"],
+    organism  : "scerevisiae",
+  });
+});
+
+</script>
+```
+
+If using a module loader such as [require.js](http://requirejs.org/docs/start.html)
+`require` the module from within your application or directly, such as:
+
+```html
+<script src="require.js"></script>
+<script>
+
+require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
+	...
 });
 
 </script>
@@ -150,7 +161,7 @@ Please submit all issues and pull requests to the
 If you have any problems or a suggestion please open an issue
 [here](https://github.com/tambeta/biojs-vis-gprofiler/issues).
 
-## License 
+## License
 
 The BSD License
 
