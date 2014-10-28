@@ -1,6 +1,7 @@
 # biojs-vis-gprofiler
 
 [![NPM version](http://img.shields.io/npm/v/biojs-vis-gprofiler.svg)](https://www.npmjs.org/package/biojs-vis-gprofiler)
+[![Build Status](https://travis-ci.org/tambeta/biojs-vis-gprofiler.svg?branch=master)](https://travis-ci.org/tambeta/biojs-vis-gprofiler)
 
 Retrieve most relevant GO terms from g:Profiler and render these as a string 
 cloud.
