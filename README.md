@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   gp = new biojsVisGprofiler({
     container : "#myContainer",
     width     : 600,
-    height		: 600,
+    height    : 600,
   });
 
   gp.on("onrender", function() {
