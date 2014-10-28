@@ -1,7 +1,7 @@
 {
   "name": "biojs-vis-gprofiler",
   "description": "Retrieve most relevant GO terms from g:Profiler",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/tambeta/biojs-vis-gprofiler",
   "author": {
     "name": "Tambet Arak",
