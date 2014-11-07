@@ -187,6 +187,7 @@ gulp.task('watch', function() {
   b = browserify({
     debug: true,
     hasExports: true,
+    standalone: "biojs-vis-gprofiler",
     cache: {},
     packageCache: {} 
   });
