@@ -64,7 +64,8 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
 
 **Typedefs**
 
-* [callback: sizerCb](#sizerCb)
+* [callback: renderCb](#renderCb)
+* [callback: distillerCb](#distillerCb)
  
 <a name="BioJSVisGProfiler"></a>
 ###class: BioJSVisGProfiler
@@ -86,20 +87,24 @@ Construct a BioJSVisGProfiler object.
 **Properties**
 
 - container `string` - Container wherein the cloud will be rendered,
- in selector format _required_  
-- width `int` - Width of the rendered cloud, in pixels
+ in selector format. _required_  
+- width `int` - Width of the rendered cloud, in pixels.
 _default_: 300  
-- height `int` - Height of the rendered cloud, in pixels
+- height `int` - Height of the rendered cloud, in pixels.
 _default_: 300  
-- maxN `int` - Max number of strings to display  
+- maxN `int` - Max number of strings to display.  
 - maxTermLen `int` - Max length of a term description, keep this at a
- reasonable value to ensure all terms are displayed. No effect in useTerms
+ reasonable value to ensure all terms are displayed. No effect if useTerms
  is false.  
 - useTerms `boolean` - Display whole functional terms instead of
- single words  
-- sizer <code>[sizerCb](#sizerCb)</code> - Callback function for computing
- the point size of a string based on passed score of the string and a scaling
- value dependent on the cloud dimensions.  
+ single words.  
+- warnings `boolean` - Log rendering warnings to the console.  
+- sizer <code>[renderCb](#renderCb)</code> - Callback function returning the point size of a
+ string.  
+- colorer <code>[renderCb](#renderCb)</code> - Callback function returning the color of a
+ string.  
+- distiller <code>[distillerCb](#distillerCb)</code> - Callback function returning an array of
+ strings to be rendered.  
 
 **Example**  
 ```
@@ -140,15 +145,28 @@ Query g:Profiler and render a cloud.
 ####event: "onrender"
 Fired when cloud rendering has completed.
 
-<a name="sizerCb"></a>
-###callback: sizerCb
+<a name="renderCb"></a>
+###callback: renderCb
 **Params**
 
 - score `int` - A score for the string (sum of all scores == 1)  
 - scaling `int` - A constant scaling value proportional to the size of
- the rendering area  
+ the container  
+- str `string` - The string being rendered  
+- termdata `Object` - The data structure returned from g:Profiler for
+ the functional category associated with the current string  
 
 **Type**: `function`  
+<a name="distillerCb"></a>
+###callback: distillerCb
+**Params**
+
+- termdata `Object` - The data structure returned from g:Profiler for
+ a functional category  
+
+**Type**: `function`  
+**Returns**: `Array` | `null` - - An array of strings associated with the current term.
+ Return `null` to discard the term.  
 
 
 ## Contributing

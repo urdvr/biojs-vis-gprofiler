@@ -22,12 +22,13 @@ describe('biojs-vis-gprofiler module', function(){
 
   it('should render words', function(done){
     var gp = new biojsvisgprofiler({
-      container : '#mocha'
+      container : '#mocha',
+      warnings  : false
     });
 
     gp.on('onrender', function() {
       var n_text_els = get_n_text_elems();
-      assert.ok(n_text_els >= 5, 'At least 5 text elements rendered')
+      assert.ok(n_text_els >= 5, 'At least 5 text elements rendered');
       done();
     });
 
@@ -37,12 +38,13 @@ describe('biojs-vis-gprofiler module', function(){
   it('should render whole terms', function(done){
     var gp = new biojsvisgprofiler({
       container : '#mocha',
-      useTerms  : true
+      useTerms  : true,
+      warnings  : false
     });
 
     gp.on('onrender', function() {
       var n_text_els = get_n_text_elems();
-      assert.ok(n_text_els >= 5, 'At least 5 text elements rendered')
+      assert.ok(n_text_els >= 2, 'At least 2 text elements rendered');
       done();
     });
 
