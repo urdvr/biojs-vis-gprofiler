@@ -60,6 +60,8 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
 * [class: BioJSVisGProfiler](#BioJSVisGProfiler)
   * [new BioJSVisGProfiler(attrs)](#new_BioJSVisGProfiler)
   * [bioJSVisGProfiler.render(attrs)](#BioJSVisGProfiler#render)
+  * [bioJSVisGProfiler.renderStored(data)](#BioJSVisGProfiler#renderStored)
+  * [bioJSVisGProfiler.getGProfiler()](#BioJSVisGProfiler#getGProfiler)
   * [event: "onrender"](#BioJSVisGProfiler#event_onrender)
 
 **Typedefs**
@@ -74,6 +76,8 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
 * [class: BioJSVisGProfiler](#BioJSVisGProfiler)
   * [new BioJSVisGProfiler(attrs)](#new_BioJSVisGProfiler)
   * [bioJSVisGProfiler.render(attrs)](#BioJSVisGProfiler#render)
+  * [bioJSVisGProfiler.renderStored(data)](#BioJSVisGProfiler#renderStored)
+  * [bioJSVisGProfiler.getGProfiler()](#BioJSVisGProfiler#getGProfiler)
   * [event: "onrender"](#BioJSVisGProfiler#event_onrender)
 
 <a name="new_BioJSVisGProfiler"></a>
@@ -99,6 +103,8 @@ _default_: 300
 - useTerms `boolean` - Display whole functional terms instead of
  single words.  
 - warnings `boolean` - Log rendering warnings to the console.  
+- showLogo `boolean` - Set to false to suppress displaying the
+ g:Profiler logo at the bottom right.  
 - sizer <code>[renderCb](#renderCb)</code> - Callback function returning the point size of a
  string.  
 - colorer <code>[renderCb](#renderCb)</code> - Callback function returning the color of a
@@ -140,6 +146,19 @@ Query g:Profiler and render a cloud.
  generally the first character of the genus + species in lowercase. E.g.
  "Mus musculus" -> "mmusculus".  
 - query `string` | `Array` - a query symbol or a list thereof.  
+
+<a name="BioJSVisGProfiler#renderStored"></a>
+####bioJSVisGProfiler.renderStored(data)
+Render cloud based on an object previously returned by an instance of
+GProfiler.
+
+**Params**
+
+- data `Object` - Object returned by GProfiler.query.  
+
+<a name="BioJSVisGProfiler#getGProfiler"></a>
+####bioJSVisGProfiler.getGProfiler()
+Return an instance of GProfiler.
 
 <a name="BioJSVisGProfiler#event_onrender"></a>
 ####event: "onrender"

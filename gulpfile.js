@@ -31,7 +31,7 @@ var join = path.join;
 var mkdirp = require('mkdirp');
 var del = require('del');
 
-var jshint = require('gulp-jshint'); 
+var jshint = require('gulp-jshint');
 var jsdoc = require('gulp-jsdoc-to-markdown');
 
 // browser builds
@@ -43,7 +43,7 @@ var uglify = require('gulp-uglify');
 // testing
 
 var mocha = require('gulp-mocha');
-var mochaPhantomJS = require('gulp-mocha-phantomjs'); 
+var mochaPhantomJS = require('gulp-mocha-phantomjs');
 
 // auto config
 
@@ -61,13 +61,15 @@ gulp.task('default', ['lint', 'test', 'build']);
 gulp.task('build', ['build-browser', 'build-browser-gzip', 'build-doc']);
 
 gulp.task('build-browser',['init'], function() {
-  
-  // browserify debug; note that this does not 
+
+  // browserify debug; note that this does not
   // build a standalone bundle
-  
-  var b = browserify({debug: true, hasExports: true});
-  
+
+  var b =
+    browserify({debug: true, hasExports: true});
+  b.transform('cssify');
   exposeBundles(b);
+
   return b.bundle()
     .pipe(source(outputFile + ".js"))
     .pipe(chmod(644))
@@ -77,15 +79,16 @@ gulp.task('build-browser',['init'], function() {
 gulp.task('build-browser-min',['init'], function() {
   var b =
     browserify({hasExports: true, standalone: "biojs-vis-gprofiler"});
+  b.transform('cssify');
   exposeBundles(b);
-  
+
   return b.bundle()
     .pipe(source(outputFile + ".min.js"))
     .pipe(chmod(644))
     .pipe(streamify(uglify()))
     .pipe(gulp.dest(buildDir));
 });
- 
+
 gulp.task('build-browser-gzip', ['build-browser-min'], function() {
   return gulp.src(outputFileMin)
     .pipe(gzip({append: false, gzipOptions: { level: 9 }}))
@@ -94,13 +97,13 @@ gulp.task('build-browser-gzip', ['build-browser-min'], function() {
 });
 
 gulp.task('build-doc', ['init'], function() {
-  
+
   // Automatically embed jsdocs into README.md
-  
+
   var fi = require('gulp-file-include');
   var replace = require('gulp-replace');
   var print = require('gulp-print');
-  
+
   gulp.src("lib/biojsvisgprofiler.js")
     .pipe(jsdoc())
     .on("error", function(err) {
@@ -138,12 +141,12 @@ gulp.task('test-dom', ["build-test"], function () {
 });
 
 gulp.task('build-test',['init'], function() {
-  
+
   // browserify debug
-  
-  var b = browserify({debug: true});  
+
+  var b = browserify({debug: true});
   b.add('./test/dom/index');
-  
+
   return b.bundle()
     .pipe(source("test.js"))
     .pipe(chmod(644))
@@ -153,16 +156,16 @@ gulp.task('build-test',['init'], function() {
 // Housekeeping tasks
 
 gulp.task('clean', function(cb) {
-  
+
   // will remove everything in build
-  
+
   del([buildDir], cb);
 });
 
 gulp.task('init', ['clean'], function() {
-  
+
   // just makes sure that the build dir exists
-  
+
   mkdirp(buildDir, function (err) {
     if (err) console.error(err)
   });
@@ -177,20 +180,22 @@ gulp.task('lint', function() {
 });
 
 gulp.task('watch', function() {
-  
-  // watch task for browserify 
+
+  // watch task for browserify
   // watchify has an internal cache, subsequent builds are faster
-  
+
   var b;
   var watcher;
-  
+
   b = browserify({
     debug: true,
     hasExports: true,
     standalone: "biojs-vis-gprofiler",
     cache: {},
-    packageCache: {} 
+    packageCache: {},
   });
+
+  b.transform('cssify');
   b.add('./index.js', {expose: packageConfig.name});
 
   function rebundle(ids){
@@ -222,10 +227,10 @@ gulp.task('test-watch', function() {
 function exposeBundles(b){
 
   // exposes the main package
-  // + checks the config whether it should expose other packages  
-  
+  // + checks the config whether it should expose other packages
+
   b.add('./index.js', {expose: packageConfig.name });
-  
+
   if (packageConfig.sniper !== undefined && packageConfig.sniper.exposed !== undefined) {
     for (var i=0; i<packageConfig.sniper.exposed.length; i++) {
       b.require(packageConfig.sniper.exposed[i]);
