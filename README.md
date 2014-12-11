@@ -223,6 +223,10 @@ Fields of _attrs_:
 ###callback: renderCb
 **Params**
 
+- attrs `Object` - Pass properties via this object.  
+
+**Properties**
+
 - score `int` - A score for the string (sum of all scores == 1)  
 - scaling `int` - A constant scaling value proportional to the size of
  the container  
