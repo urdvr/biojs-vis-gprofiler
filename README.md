@@ -141,27 +141,20 @@ Query g:Profiler and render a cloud.
 
 **Params**
 
-- attrs `Object` - Pass properties to the method via this object.  
-
-**Properties**
-
-- organism `string` - The organism name in g:Profiler format,
- generally the first character of the genus + species in lowercase. E.g.
- "Mus musculus" -> "mmusculus".  
-- query `string` | `Array` - a query symbol or a list thereof.  
+- attrs `Object` - Passed through to GProfiler.[query](#GProfiler#query).  
 
 <a name="BioJSVisGProfiler#renderStored"></a>
 ####bioJSVisGProfiler.renderStored(data)
-Render cloud based on an object previously returned by an instance of
-GProfiler.
+Render cloud based on an object previously returned by
+GProfiler.[query](#GProfiler#query).
 
 **Params**
 
-- data `Object` - Object returned by GProfiler.query.  
+- data `Object` - Object returned by GProfiler.[query](#GProfiler#query).  
 
 <a name="BioJSVisGProfiler#getGProfiler"></a>
 ####bioJSVisGProfiler.getGProfiler()
-Return an instance of GProfiler.
+Return an instance of [GProfiler](#GProfiler).
 
 <a name="BioJSVisGProfiler#event_onrender"></a>
 ####event: "onrender"
@@ -191,12 +184,14 @@ Query g:Profiler.
 - cb `function` - A callback function receiving the result object from
  a g:Profiler query.
 
-Fields of `attrs`:  
+Fields of _attrs_:  
 
 **Properties**
 
 - query `Array` - A list of query symbols. _required_  
-- organism `String` - The query organism. _default_: hsapiens  
+- organism `String` - The organism name in g:Profiler format,
+ generally the first character of the genus + species in lowercase. E.g.
+ "Mus musculus" -> "mmusculus". _default_: hsapiens  
 - significant `boolean` - Only return statistically significant
  results. _default_: true  
 - ordered `boolean` - Ordered query. _default_: false.  
