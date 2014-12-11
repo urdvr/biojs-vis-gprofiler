@@ -53,7 +53,7 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
 
 ## Documentation
 
-@@include('./biojsvisgprofiler.md')
+@@include('./docs.md')
 
 ## Contributing
 

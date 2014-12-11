@@ -100,11 +100,13 @@ gulp.task('build-doc', ['init'], function() {
 
   // Automatically embed jsdocs into README.md
 
-  var fi = require('gulp-file-include');
+  var include = require('gulp-file-include');
   var replace = require('gulp-replace');
   var print = require('gulp-print');
+  var cat = require('gulp-concat');
 
-  gulp.src("lib/biojsvisgprofiler.js")
+  gulp.src(["lib/biojsvisgprofiler.js", "lib/gprofiler.js"])
+    .pipe(cat("docs.md"))
     .pipe(jsdoc())
     .on("error", function(err) {
       gutil.log(gutil.colors.red("jsdoc-to-markdown failed"), err.message)
@@ -113,13 +115,10 @@ gulp.task('build-doc', ['init'], function() {
       var s = "######";
       return s.substr(0, x.length+2);
     }))
-    .pipe(rename(function(path) {
-      path.extname = ".md";
-    }))
     .pipe(gulp.dest("build"))
     .on('end', function() {
       gulp.src("doc/README.md")
-      .pipe(fi({basepath: "build"}))
+      .pipe(include({basepath: "build"}))
       .pipe(gulp.dest("."));
     });
 });
