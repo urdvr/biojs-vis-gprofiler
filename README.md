@@ -194,11 +194,11 @@ Fields of _attrs_:
  "Mus musculus" -> "mmusculus". _default_: hsapiens  
 - significant `boolean` - Only return statistically significant
  results. _default_: true  
-- ordered `boolean` - Ordered query. _default_: false.  
+- ordered_query `boolean` - Ordered query. _default_: false.  
+- region_query `boolean` - The query consists of chromosomal
+ regions. _default_: false.*  
 - exclude_iea `boolean` - Exclude electronic GO annotations.
  _default_: false.  
-- region_query `boolean` - The query consists of chromosomal
- regions. _default_: false.  
 - underrep `boolean` - Measure underrepresentation. _default_: false.  
 - hier_filtering `String` - Hierarchical filtering, one of "none",
  "moderate", "strong". _default_: none.  
