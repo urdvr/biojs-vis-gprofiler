@@ -66,6 +66,8 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
 * [class: GProfiler](#GProfiler)
   * [new GProfiler()](#new_GProfiler)
   * [gProfiler.query(attrs, cb)](#GProfiler#query)
+  * [gProfiler.getQueryParams(query_attrs)](#GProfiler#getQueryParams)
+  * [gProfiler.getRootURL()](#GProfiler#getRootURL)
 
 **Typedefs**
 
@@ -167,6 +169,8 @@ Fired when cloud rendering has completed.
 * [class: GProfiler](#GProfiler)
   * [new GProfiler()](#new_GProfiler)
   * [gProfiler.query(attrs, cb)](#GProfiler#query)
+  * [gProfiler.getQueryParams(query_attrs)](#GProfiler#getQueryParams)
+  * [gProfiler.getRootURL()](#GProfiler#getRootURL)
 
 <a name="new_GProfiler"></a>
 ####new GProfiler()
@@ -219,6 +223,22 @@ Fields of _attrs_:
  [g:GOSt web tool](http://biit.cs.ut.ee/gprofiler/) for the comprehensive
  list and details on incorporated data sources.  
 
+<a name="GProfiler#getQueryParams"></a>
+####gProfiler.getQueryParams(query_attrs)
+Return the HTTP request parameters for a query.
+
+**Params**
+
+- query_attrs `Object` - See the documentation for [GProfiler#query]. If
+ not specified, the active query (the last query executed via
+ [GProfiler#query]) is used. Otherwise, an error is thrown.  
+
+**Returns**: `Object`  
+<a name="GProfiler#getRootURL"></a>
+####gProfiler.getRootURL()
+Return g:Profiler root URL.
+
+**Returns**: `String`  
 <a name="renderCb"></a>
 ###callback: renderCb
 **Params**
