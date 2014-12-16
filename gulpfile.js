@@ -173,7 +173,7 @@ gulp.task('init', ['clean'], function() {
 // Miscellaneous tasks
 
 gulp.task('lint', function() {
-  return gulp.src('./lib/biojsvisgprofiler.js')
+  return gulp.src(['./lib/biojsvisgprofiler.js', './lib/gprofiler.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
