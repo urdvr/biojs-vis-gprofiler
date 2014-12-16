@@ -67,6 +67,7 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
   * [new GProfiler()](#new_GProfiler)
   * [gProfiler.query(attrs, cb)](#GProfiler#query)
   * [gProfiler.getQueryParams(query_attrs)](#GProfiler#getQueryParams)
+  * [gProfiler.getQueryURL(query_attrs)](#GProfiler#getQueryURL)
   * [gProfiler.getRootURL()](#GProfiler#getRootURL)
 
 **Typedefs**
@@ -170,6 +171,7 @@ Fired when cloud rendering has completed.
   * [new GProfiler()](#new_GProfiler)
   * [gProfiler.query(attrs, cb)](#GProfiler#query)
   * [gProfiler.getQueryParams(query_attrs)](#GProfiler#getQueryParams)
+  * [gProfiler.getQueryURL(query_attrs)](#GProfiler#getQueryURL)
   * [gProfiler.getRootURL()](#GProfiler#getRootURL)
 
 <a name="new_GProfiler"></a>
@@ -234,6 +236,18 @@ Return the HTTP request parameters for a query.
  [GProfiler#query]) is used. Otherwise, an error is thrown.  
 
 **Returns**: `Object`  
+<a name="GProfiler#getQueryURL"></a>
+####gProfiler.getQueryURL(query_attrs)
+Return g:Profiler URL encoding a query.
+
+**Params**
+
+- query_attrs `Object` - See the documentation for [GProfiler#query]. If
+ not specified, the active query (the last query executed via
+ [GProfiler#query]) is used. Otherwise, an error is thrown.  
+
+**Returns**: `String` | `null` - If the URL lengths exceeds the maximum allowed length,
+ `null` is returned.  
 <a name="GProfiler#getRootURL"></a>
 ####gProfiler.getRootURL()
 Return g:Profiler root URL.
