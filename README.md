@@ -62,12 +62,14 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
   * [bioJSVisGProfiler.render(attrs)](#BioJSVisGProfiler#render)
   * [bioJSVisGProfiler.renderStored(data)](#BioJSVisGProfiler#renderStored)
   * [bioJSVisGProfiler.getGProfiler()](#BioJSVisGProfiler#getGProfiler)
+  * [bioJSVisGProfiler.getInfoboxId()](#BioJSVisGProfiler#getInfoboxId)
   * [event: "onrender"](#BioJSVisGProfiler#event_onrender)
+  * [event: "onclick"](#BioJSVisGProfiler#event_onclick)
 * [class: GProfiler](#GProfiler)
   * [new GProfiler()](#new_GProfiler)
   * [gProfiler.query(attrs, cb)](#GProfiler#query)
-  * [gProfiler.getQueryParams(query_attrs)](#GProfiler#getQueryParams)
-  * [gProfiler.getQueryURL(query_attrs)](#GProfiler#getQueryURL)
+  * [gProfiler.getQueryParams(queryAttrs)](#GProfiler#getQueryParams)
+  * [gProfiler.getQueryURL(queryAttrs)](#GProfiler#getQueryURL)
   * [gProfiler.getRootURL()](#GProfiler#getRootURL)
 
 **Typedefs**
@@ -84,7 +86,9 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
   * [bioJSVisGProfiler.render(attrs)](#BioJSVisGProfiler#render)
   * [bioJSVisGProfiler.renderStored(data)](#BioJSVisGProfiler#renderStored)
   * [bioJSVisGProfiler.getGProfiler()](#BioJSVisGProfiler#getGProfiler)
+  * [bioJSVisGProfiler.getInfoboxId()](#BioJSVisGProfiler#getInfoboxId)
   * [event: "onrender"](#BioJSVisGProfiler#event_onrender)
+  * [event: "onclick"](#BioJSVisGProfiler#event_onclick)
 
 <a name="new_BioJSVisGProfiler"></a>
 ####new BioJSVisGProfiler(attrs)
@@ -159,9 +163,24 @@ GProfiler.[query](#GProfiler#query).
 ####bioJSVisGProfiler.getGProfiler()
 Return an instance of [GProfiler](#GProfiler).
 
+<a name="BioJSVisGProfiler#getInfoboxId"></a>
+####bioJSVisGProfiler.getInfoboxId()
+Return the infobox element id attribute. Useful if you wish to catch the 
+`onclick` event to hide the default infobox and apply custom behavior.
+
 <a name="BioJSVisGProfiler#event_onrender"></a>
 ####event: "onrender"
 Fired when cloud rendering has completed.
+
+<a name="BioJSVisGProfiler#event_onclick"></a>
+####event: "onclick"
+Fired upon click on a cloud element
+
+**Params**
+
+- termdata `Array` - Array of data structures returned from 
+ g:Profiler per functional category associated with the clicked string.  
+- event `Event`  
 
 <a name="GProfiler"></a>
 ###class: GProfiler
@@ -170,8 +189,8 @@ Fired when cloud rendering has completed.
 * [class: GProfiler](#GProfiler)
   * [new GProfiler()](#new_GProfiler)
   * [gProfiler.query(attrs, cb)](#GProfiler#query)
-  * [gProfiler.getQueryParams(query_attrs)](#GProfiler#getQueryParams)
-  * [gProfiler.getQueryURL(query_attrs)](#GProfiler#getQueryURL)
+  * [gProfiler.getQueryParams(queryAttrs)](#GProfiler#getQueryParams)
+  * [gProfiler.getQueryURL(queryAttrs)](#GProfiler#getQueryURL)
   * [gProfiler.getRootURL()](#GProfiler#getRootURL)
 
 <a name="new_GProfiler"></a>
@@ -200,54 +219,54 @@ Fields of _attrs_:
  "Mus musculus" -> "mmusculus". _default_: hsapiens  
 - significant `boolean` - Only return statistically significant
  results. _default_: true  
-- ordered_query `boolean` - Ordered query. _default_: false.  
-- region_query `boolean` - The query consists of chromosomal
+- orderedQuery `boolean` - Ordered query. _default_: false.  
+- regionQuery `boolean` - The query consists of chromosomal
  regions. _default_: false.*  
-- exclude_iea `boolean` - Exclude electronic GO annotations.
+- excludeIEA `boolean` - Exclude electronic GO annotations.
  _default_: false.  
 - underrep `boolean` - Measure underrepresentation. _default_: false.  
-- hier_filtering `String` - Hierarchical filtering, one of "none",
+- hierFiltering `String` - Hierarchical filtering, one of "none",
  "moderate", "strong". _default_: none.  
-- max_p_value `float` - Custom p-value threshold. _default_: 1.0.  
-- min_set_size `int` - Minimum size of functional category.  
-- max_set_size `int` - Maximum size of functional category.  
-- correction_method `String` - Algorithm used for determining the
+- maxPValue `float` - Custom p-value threshold. _default_: 1.0.  
+- minSetSize `int` - Minimum size of functional category.  
+- maxSetSize `int` - Maximum size of functional category.  
+- correctionMethod `String` - Algorithm used for determining the
  significance threshold, one of "gSCS", "fdr", "bonferroni". _default_:
  "gSCS".  
-- domain_size `String` - Statistical domain size, one of "annotated",
+- domainSize `String` - Statistical domain size, one of "annotated",
  "known". _default_: annotated.  
-- numeric_ns `String` - Namespace to use for fully numeric IDs.  
-- custom_bg `Array` - Array of symbols to use as a statistical
+- numericNS `String` - Namespace to use for fully numeric IDs.  
+- customBG `Array` - Array of symbols to use as a statistical
  background.  
-- src_filter `Array` - Array of data sources to use. Currently these
+- srcFilter `Array` - Array of data sources to use. Currently these
  include GO (GO:BP, GO:MF, GO:CC to select a particular GO branch), KEGG,
  REAC, TF, MI, CORUM, HP. Please see the
  [g:GOSt web tool](http://biit.cs.ut.ee/gprofiler/) for the comprehensive
  list and details on incorporated data sources.  
 
 <a name="GProfiler#getQueryParams"></a>
-####gProfiler.getQueryParams(query_attrs)
+####gProfiler.getQueryParams(queryAttrs)
 Return the HTTP request parameters for a query.
 
 **Params**
 
-- query_attrs `Object` - See the documentation for [GProfiler#query]. If
+- queryAttrs `Object` - See the documentation for [GProfiler#query]. If
  not specified, the active query (the last query executed via
  [GProfiler#query]) is used. Otherwise, an error is thrown.  
 
 **Returns**: `Object`  
 <a name="GProfiler#getQueryURL"></a>
-####gProfiler.getQueryURL(query_attrs)
+####gProfiler.getQueryURL(queryAttrs)
 Return g:Profiler URL encoding a query.
 
 **Params**
 
-- query_attrs `Object` - See the documentation for [GProfiler#query]. If
+- queryAttrs `Object` - See the documentation for [GProfiler#query]. If
  not specified, the active query (the last query executed via
  [GProfiler#query]) is used. Otherwise, an error is thrown.  
 
-**Returns**: `String` | `null` - If the URL lengths exceeds the maximum allowed length,
- `null` is returned.  
+**Returns**: `String` | `null` - If the resulting URL lengths exceeds the maximum
+ allowed length, `null` is returned.  
 <a name="GProfiler#getRootURL"></a>
 ####gProfiler.getRootURL()
 Return g:Profiler root URL.
@@ -262,11 +281,11 @@ Return g:Profiler root URL.
 **Properties**
 
 - score `int` - A score for the string (sum of all scores == 1)  
-- scaling `int` - A constant scaling value proportional to the size of
- the container  
+- scaling `int` - A constant scaling value proportional to the size
+ of the container  
 - str `string` - The string being rendered  
-- termdata `Object` - The data structure returned from g:Profiler for
- the functional category associated with the current string  
+- termdata `Array` - Array of data structures returned from 
+ g:Profiler per functional category associated with the current string.  
 
 **Type**: `function`  
 <a name="distillerCb"></a>

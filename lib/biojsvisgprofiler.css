@@ -1,2 +1,15 @@
 
+#_gpvis_infobox {
+  color: #333;
+  background-color : #fafafa;
+  font-size: 85%;
+  border: 2px solid #cacaca;
+  padding: 0.3em;
+  max-width: 20em;
+  display: none;
+  position: absolute;
+}
 
+#_gpvis_infobox hr {
+  border: 1px dotted #333;
+}
