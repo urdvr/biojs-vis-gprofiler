@@ -165,7 +165,7 @@ Return an instance of [GProfiler](#GProfiler).
 
 <a name="BioJSVisGProfiler#getInfoboxId"></a>
 ####bioJSVisGProfiler.getInfoboxId()
-Return the infobox element id attribute. Useful if you wish to catch the 
+Return the infobox element id attribute. Useful if you wish to catch the
 `onclick` event to hide the default infobox and apply custom behavior.
 
 <a name="BioJSVisGProfiler#event_onrender"></a>
@@ -178,7 +178,7 @@ Fired upon click on a cloud element
 
 **Params**
 
-- termdata `Array` - Array of data structures returned from 
+- termdata `Array` - Array of data structures returned from
  g:Profiler per functional category associated with the clicked string.  
 - event `Event`  
 
@@ -284,7 +284,7 @@ Return g:Profiler root URL.
 - scaling `int` - A constant scaling value proportional to the size
  of the container  
 - str `string` - The string being rendered  
-- termdata `Array` - Array of data structures returned from 
+- termdata `Array` - Array of data structures returned from
  g:Profiler per functional category associated with the current string.  
 
 **Type**: `function`  
