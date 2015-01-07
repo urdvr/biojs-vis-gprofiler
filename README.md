@@ -150,6 +150,11 @@ Query g:Profiler and render a cloud.
 
 - attrs `Object` - Passed through to GProfiler.[query](#GProfiler#query).  
 
+**Fires**
+
+- [onrender](#BioJSVisGProfiler#event_onrender)
+- [onclick](#BioJSVisGProfiler#event_onclick)
+
 <a name="BioJSVisGProfiler#renderStored"></a>
 ####bioJSVisGProfiler.renderStored(data)
 Render cloud based on an object previously returned by
@@ -158,6 +163,11 @@ GProfiler.[query](#GProfiler#query).
 **Params**
 
 - data `Object` - Object returned by GProfiler.[query](#GProfiler#query).  
+
+**Fires**
+
+- [onrender](#BioJSVisGProfiler#event_onrender)
+- [onclick](#BioJSVisGProfiler#event_onclick)
 
 <a name="BioJSVisGProfiler#getGProfiler"></a>
 ####bioJSVisGProfiler.getGProfiler()

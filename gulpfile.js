@@ -144,6 +144,7 @@ gulp.task('build-test',['init'], function() {
   // browserify debug
 
   var b = browserify({debug: true});
+  b.transform('cssify');
   b.add('./test/dom/index');
 
   return b.bundle()
