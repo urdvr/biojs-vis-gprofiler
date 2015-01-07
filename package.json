@@ -76,6 +76,9 @@
     ],
     "first": "example"
   },
+  "browserify": {
+    "transform": ["cssify"]
+  },
   "keywords": [
     "gprofiler",
     "geneontology",
