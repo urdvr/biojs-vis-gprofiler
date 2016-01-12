@@ -115,6 +115,8 @@ _default_: 300
 - warnings `boolean` - Log rendering warnings to the console.  
 - showLogo `boolean` - Set to false to suppress displaying the
  g:Profiler logo at the bottom right.  
+- logoHttpPost `boolean` - Set to true to use a HTTP POST request
+ to g:Profiler upon clicking the logo at the bottom right.  
 - sizer <code>[renderCb](#renderCb)</code> - Callback function returning the point size of a
  string.  
 - colorer <code>[renderCb](#renderCb)</code> - Callback function returning the color of a
