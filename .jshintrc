@@ -16,5 +16,6 @@
   "funcscope": true,
   "node": true,
   "sub": true,
-  "browser": true
+  "browser": true,
+  "scripturl" : true
 }

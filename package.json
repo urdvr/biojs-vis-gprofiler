@@ -14,12 +14,7 @@
   "bugs": {
     "url": "https://github.com/tambeta/biojs-vis-gprofiler/issues"
   },
-  "licenses": [
-    {
-      "type": "BSD",
-      "url": "https://github.com/tambeta/biojs-vis-gprofiler/blob/master/LICENSE"
-    }
-  ],
+  "license": "BSD-3-Clause",
   "main": "lib/biojsvisgprofiler.js",
   "scripts": {
     "build": "gulp build",
@@ -36,12 +31,12 @@
     "backbone-events-standalone": "^0.2.4",
     "d3-browserify": "^3.4.11",
     "jquery-browserify": "^1.8.1",
-    "stopwords": "0.0.4",
+    "stopwords": "^0.0.4",
     "underscore": "^1.7.0",
     "cssify": "^0.6.0"
   },
   "devDependencies": {
-    "biojs-sniper": "0.0.4",
+    "sniper": "^0.2.7",
     "browserify": "^6.2.0",
     "chai": "^1.9.2",
     "cssify": "^0.6.0",
@@ -62,6 +57,7 @@
     "gulp-uglify": "^1.0.1",
     "gulp-util": "^3.0.1",
     "gulp-watch": "^1.1.0",
+    "jsdoc": "^3.4.0",
     "mkdirp": "^0.5.0",
     "mocha": "^2.0.1",
     "vinyl-source-stream": "^1.0.0",
