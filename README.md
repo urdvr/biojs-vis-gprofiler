@@ -115,7 +115,7 @@ _default_: 300
 - warnings `boolean` - Log rendering warnings to the console.  
 - showLogo `boolean` - Set to false to suppress displaying the
  g:Profiler logo at the bottom right.  
-- showInfo `boolean` - Seto to false to suppress displaying the
+- showInfo `boolean` - Set to false to suppress displaying the
  default tooltip upon clicking a string.  
 - logoHttpPost `boolean` - Set to true to use a HTTP POST request
  to g:Profiler upon clicking the logo at the bottom right.  
