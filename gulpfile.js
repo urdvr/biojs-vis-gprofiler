@@ -67,7 +67,7 @@ gulp.task('build-browser',['init'], function() {
 
   var b =
     browserify({debug: true, hasExports: true});
-  b.transform('cssify');
+  b.transform('browserify-css');
   exposeBundles(b);
 
   return b.bundle()
@@ -79,7 +79,7 @@ gulp.task('build-browser',['init'], function() {
 gulp.task('build-browser-min',['init'], function() {
   var b =
     browserify({hasExports: true, standalone: "biojs-vis-gprofiler"});
-  b.transform('cssify');
+  b.transform('browserify-css');
   exposeBundles(b);
 
   return b.bundle()
@@ -144,7 +144,7 @@ gulp.task('build-test',['init'], function() {
   // browserify debug
 
   var b = browserify({debug: true});
-  b.transform('cssify');
+  b.transform('browserify-css');
   b.add('./test/dom/index');
 
   return b.bundle()
@@ -195,7 +195,7 @@ gulp.task('watch', function() {
     packageCache: {},
   });
 
-  b.transform('cssify');
+  b.transform('browserify-css');
   b.add('./index.js', {expose: packageConfig.name});
 
   function rebundle(ids){
