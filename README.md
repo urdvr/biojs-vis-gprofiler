@@ -179,8 +179,7 @@ Return an instance of [GProfiler](#GProfiler).
 
 <a name="BioJSVisGProfiler#getInfoboxId"></a>
 ####bioJSVisGProfiler.getInfoboxId()
-Return the infobox element id attribute. Useful if you wish to catch the
-`onclick` event to hide the default infobox and apply custom behavior.
+Return the infobox element id attribute.
 
 <a name="BioJSVisGProfiler#event_onrender"></a>
 ####event: "onrender"
