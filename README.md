@@ -76,6 +76,7 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
 
 * [callback: renderCb](#renderCb)
 * [callback: distillerCb](#distillerCb)
+* [callback: scorerCb](#scorerCb)
  
 <a name="BioJSVisGProfiler"></a>
 ###class: BioJSVisGProfiler
@@ -123,6 +124,10 @@ _default_: 300
  string.  
 - colorer <code>[renderCb](#renderCb)</code> - Callback function returning the color of a
  string.  
+- scorer <code>[scorerCb](#scorerCb)</code> - Callback function returning the score for a
+ string. This is used for ordering to select `maxN` top strings and is passed
+ to the `sizer` and `colorer` callbacks. Note that the scores are normalized
+ to sum to 1.  
 - distiller <code>[distillerCb](#distillerCb)</code> - Callback function returning an array of
  strings to be rendered.  
 
@@ -293,10 +298,10 @@ Return g:Profiler root URL.
 
 **Properties**
 
-- score `int` - A score for the string (sum of all scores == 1)  
+- score `float` - A score for the string (sum of all scores == 1).  
 - scaling `int` - A constant scaling value proportional to the size
- of the container  
-- str `string` - The string being rendered  
+ of the container.  
+- str `string` - The string being rendered.  
 - termdata `Array` - Array of data structures returned from
  g:Profiler per functional category associated with the current string.  
 
@@ -306,11 +311,25 @@ Return g:Profiler root URL.
 **Params**
 
 - termdata `Object` - The data structure returned from g:Profiler for
- a functional category  
+ a functional category.  
 
 **Type**: `function`  
 **Returns**: `Array` | `null` - - An array of strings associated with the current term.
  Return `null` to discard the term.  
+<a name="scorerCb"></a>
+###callback: scorerCb
+**Params**
+
+- attrs `Object` - Pass properties via this object.  
+
+**Properties**
+
+- str `string` - The string being rendered.  
+- termdata `Array` - Array of data structures returned from
+ g:Profiler per functional category associated with the current string.  
+
+**Type**: `function`  
+**Returns**: `float`  
 
 
 ## Contributing
