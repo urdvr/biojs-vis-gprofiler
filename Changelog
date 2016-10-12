@@ -1,0 +1,11 @@
+
+biojs-vis-gprofiler ChangeLog
+-----------------------------
+
+v0.5.0:
+
+- Added the `scorer` parameter to BioJSVisGProfiler constructor to specify a
+  callback for scoring displayed strings.
+- jQuery no longer leaks `$` into the global scope.
+- Finally started the ChangeLog.
+
