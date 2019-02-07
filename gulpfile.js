@@ -16,7 +16,6 @@ var outputFile = "biojsvisgprofiler";
 // gulp + utils
 
 var gulp = require('gulp');
-var util = require('gulp-util')
 
 var source = require('vinyl-source-stream'); // node streams -> vinyl streams
 var gzip = require('gulp-gzip');
@@ -24,6 +23,8 @@ var rename = require('gulp-rename');
 var chmod = require('gulp-chmod');
 var streamify = require('gulp-streamify'); // streams -> buffers (for old plugins)
 var watch = require('gulp-watch');
+var log = require('fancy-log');
+var colors = require('ansi-colors');
 
 var fs = require('fs');
 var path = require('path');
@@ -109,7 +110,7 @@ gulp.task('build-doc', ['init'], function() {
     .pipe(cat("docs.md"))
     .pipe(jsdoc())
     .on("error", function(err) {
-      gutil.log(gutil.colors.red("jsdoc-to-markdown failed"), err.message)
+      log(colors.red("jsdoc-to-markdown failed"), err.message)
     })
     .pipe(replace(/^#+/gm, function(x) { // tone down header sizes by 2
       var s = "######";
@@ -201,7 +202,7 @@ gulp.task('watch', function() {
   function rebundle(ids){
     b.bundle()
     .on("error", function(error) {
-      util.log(util.colors.red("Error: "), error);
+      log(colors.red("Error: "), error);
     })
     .pipe(source(outputFile + ".js"))
     .pipe(chmod(644))
@@ -211,7 +212,7 @@ gulp.task('watch', function() {
   watcher = watchify(b);
   watcher.on("update", rebundle)
    .on("log", function(message) {
-      util.log("Refreshed:", message);
+      log("Refreshed:", message);
   });
 
   return rebundle();
