@@ -29,11 +29,13 @@
   },
   "dependencies": {
     "backbone-events-standalone": "^0.2.4",
+    "browserify-css": "^0.9.0",
     "d3-browserify": "^3.4.11",
     "jquery-browserify": "^1.8.1",
+    "lodash.mapkeys": "^4.6.0",
+    "lodash.pick": "^4.4.0",
     "stopwords": "^0.0.4",
-    "underscore": "^1.7.0",
-    "browserify-css": "^0.9.0"
+    "underscore": "^1.7.0"
   },
   "devDependencies": {
     "ansi-colors": "^3.2.3",
