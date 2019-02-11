@@ -268,9 +268,9 @@ Return the HTTP request parameters for a query.
 
 **Params**
 
-- queryAttrs `Object` - See the documentation for [GProfiler#query]. If
- not specified, the active query (the last query executed via
- [GProfiler#query]) is used. Otherwise, an error is thrown.  
+- queryAttrs `Object` - See the documentation for GProfiler.[query](#GProfiler#query). If not specified, the active query (the last query
+executed via GProfiler.[query](#GProfiler#query)) is used. Otherwise, an
+error is thrown.  
 
 **Returns**: `Object`  
 <a name="GProfiler#getQueryURL"></a>
@@ -279,9 +279,9 @@ Return g:Profiler URL encoding a query.
 
 **Params**
 
-- queryAttrs `Object` - See the documentation for [GProfiler#query]. If
- not specified, the active query (the last query executed via
- [GProfiler#query]) is used. Otherwise, an error is thrown.  
+- queryAttrs `Object` - See the documentation for GProfiler.[query](#GProfiler#query). If not specified, the active query (the last query
+executed via GProfiler.[query](#GProfiler#query)) is used. Otherwise, an
+error is thrown.  
 
 **Returns**: `String` | `null` - If the resulting URL lengths exceeds the maximum
  allowed length, `null` is returned.  
