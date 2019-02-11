@@ -53,7 +53,7 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
 
 ## Documentation
 
-###Index
+### Index
 
 **Classes**
 
@@ -79,7 +79,7 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
 * [callback: scorerCb](#scorerCb)
  
 <a name="BioJSVisGProfiler"></a>
-###class: BioJSVisGProfiler
+### class: BioJSVisGProfiler
 **Members**
 
 * [class: BioJSVisGProfiler](#BioJSVisGProfiler)
@@ -92,7 +92,7 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
   * [event: "onclick"](#BioJSVisGProfiler#event_onclick)
 
 <a name="new_BioJSVisGProfiler"></a>
-####new BioJSVisGProfiler(attrs)
+#### new BioJSVisGProfiler(attrs)
 Construct a BioJSVisGProfiler object.
 
 **Params**
@@ -152,7 +152,7 @@ gp.render({
 ```
 
 <a name="BioJSVisGProfiler#render"></a>
-####bioJSVisGProfiler.render(attrs)
+#### bioJSVisGProfiler.render(attrs)
 Query g:Profiler and render a cloud.
 
 **Params**
@@ -165,7 +165,7 @@ Query g:Profiler and render a cloud.
 - [onclick](#BioJSVisGProfiler#event_onclick)
 
 <a name="BioJSVisGProfiler#renderStored"></a>
-####bioJSVisGProfiler.renderStored(data)
+#### bioJSVisGProfiler.renderStored(data)
 Render cloud based on an object previously returned by
 GProfiler.[query](#GProfiler#query).
 
@@ -179,19 +179,19 @@ GProfiler.[query](#GProfiler#query).
 - [onclick](#BioJSVisGProfiler#event_onclick)
 
 <a name="BioJSVisGProfiler#getGProfiler"></a>
-####bioJSVisGProfiler.getGProfiler()
+#### bioJSVisGProfiler.getGProfiler()
 Return an instance of [GProfiler](#GProfiler).
 
 <a name="BioJSVisGProfiler#getInfoboxId"></a>
-####bioJSVisGProfiler.getInfoboxId()
+#### bioJSVisGProfiler.getInfoboxId()
 Return the infobox element id attribute.
 
 <a name="BioJSVisGProfiler#event_onrender"></a>
-####event: "onrender"
+#### event: "onrender"
 Fired when cloud rendering has completed.
 
 <a name="BioJSVisGProfiler#event_onclick"></a>
-####event: "onclick"
+#### event: "onclick"
 Fired upon click on a cloud element
 
 **Params**
@@ -201,7 +201,7 @@ Fired upon click on a cloud element
 - event `Event`  
 
 <a name="GProfiler"></a>
-###class: GProfiler
+### class: GProfiler
 **Members**
 
 * [class: GProfiler](#GProfiler)
@@ -212,11 +212,11 @@ Fired upon click on a cloud element
   * [gProfiler.getRootURL()](#GProfiler#getRootURL)
 
 <a name="new_GProfiler"></a>
-####new GProfiler()
+#### new GProfiler()
 Construct a GProfiler object.
 
 <a name="GProfiler#query"></a>
-####gProfiler.query(attrs, cb)
+#### gProfiler.query(attrs, cb)
 Query g:Profiler.
 
 **Params**
@@ -263,7 +263,7 @@ Fields of _attrs_:
  list and details on incorporated data sources.  
 
 <a name="GProfiler#getQueryParams"></a>
-####gProfiler.getQueryParams(queryAttrs)
+#### gProfiler.getQueryParams(queryAttrs)
 Return the HTTP request parameters for a query.
 
 **Params**
@@ -274,7 +274,7 @@ Return the HTTP request parameters for a query.
 
 **Returns**: `Object`  
 <a name="GProfiler#getQueryURL"></a>
-####gProfiler.getQueryURL(queryAttrs)
+#### gProfiler.getQueryURL(queryAttrs)
 Return g:Profiler URL encoding a query.
 
 **Params**
@@ -286,12 +286,12 @@ Return g:Profiler URL encoding a query.
 **Returns**: `String` | `null` - If the resulting URL lengths exceeds the maximum
  allowed length, `null` is returned.  
 <a name="GProfiler#getRootURL"></a>
-####gProfiler.getRootURL()
+#### gProfiler.getRootURL()
 Return g:Profiler root URL.
 
 **Returns**: `String`  
 <a name="renderCb"></a>
-###callback: renderCb
+### callback: renderCb
 **Params**
 
 - attrs `Object` - Pass properties via this object.  
@@ -307,7 +307,7 @@ Return g:Profiler root URL.
 
 **Type**: `function`  
 <a name="distillerCb"></a>
-###callback: distillerCb
+### callback: distillerCb
 **Params**
 
 - termdata `Object` - The data structure returned from g:Profiler for
@@ -317,7 +317,7 @@ Return g:Profiler root URL.
 **Returns**: `Array` | `null` - - An array of strings associated with the current term.
  Return `null` to discard the term.  
 <a name="scorerCb"></a>
-###callback: scorerCb
+### callback: scorerCb
 **Params**
 
 - attrs `Object` - Pass properties via this object.  

@@ -114,7 +114,7 @@ gulp.task('build-doc', ['init'], function() {
     })
     .pipe(replace(/^#+/gm, function(x) { // tone down header sizes by 2
       var s = '######';
-      return s.substr(0, x.length+2);
+      return s.substr(0, x.length+2) + ' ';
     }))
     .pipe(gulp.dest('build'))
     .on('end', function() {
