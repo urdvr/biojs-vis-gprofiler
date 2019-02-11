@@ -6,8 +6,8 @@
  * Licensed under the BSD license.
  */
 
-var buildDir = "build";
-var outputFile = "biojsvisgprofiler";
+var buildDir = 'build';
+var outputFile = 'biojsvisgprofiler';
 
 //
 // Import modules
@@ -48,7 +48,7 @@ var mochaPhantomJS = require('gulp-mocha-phantomjs');
 
 // auto config
 
-var outputFileMin = join(buildDir, outputFile + ".min.js");
+var outputFileMin = join(buildDir, outputFile + '.min.js');
 var packageConfig = require('./package.json');
 
 //
@@ -72,19 +72,19 @@ gulp.task('build-browser',['init'], function() {
   exposeBundles(b);
 
   return b.bundle()
-    .pipe(source(outputFile + ".js"))
+    .pipe(source(outputFile + '.js'))
     .pipe(chmod(644))
     .pipe(gulp.dest(buildDir));
 });
 
 gulp.task('build-browser-min',['init'], function() {
   var b =
-    browserify({hasExports: true, standalone: "biojs-vis-gprofiler"});
+    browserify({hasExports: true, standalone: 'biojs-vis-gprofiler'});
   b.transform('browserify-css');
   exposeBundles(b);
 
   return b.bundle()
-    .pipe(source(outputFile + ".min.js"))
+    .pipe(source(outputFile + '.min.js'))
     .pipe(chmod(644))
     .pipe(streamify(uglify()))
     .pipe(gulp.dest(buildDir));
@@ -93,7 +93,7 @@ gulp.task('build-browser-min',['init'], function() {
 gulp.task('build-browser-gzip', ['build-browser-min'], function() {
   return gulp.src(outputFileMin)
     .pipe(gzip({append: false, gzipOptions: { level: 9 }}))
-    .pipe(rename(outputFile + ".min.gz.js"))
+    .pipe(rename(outputFile + '.min.gz.js'))
     .pipe(gulp.dest(buildDir));
 });
 
@@ -106,21 +106,21 @@ gulp.task('build-doc', ['init'], function() {
   var print = require('gulp-print');
   var cat = require('gulp-concat');
 
-  gulp.src(["lib/biojsvisgprofiler.js", "lib/gprofiler.js"])
-    .pipe(cat("docs.md"))
+  gulp.src(['lib/biojsvisgprofiler.js', 'lib/gprofiler.js'])
+    .pipe(cat('docs.md'))
     .pipe(jsdoc())
-    .on("error", function(err) {
-      log(colors.red("jsdoc-to-markdown failed"), err.message)
+    .on('error', function(err) {
+      log(colors.red('jsdoc-to-markdown failed'), err.message)
     })
     .pipe(replace(/^#+/gm, function(x) { // tone down header sizes by 2
-      var s = "######";
+      var s = '######';
       return s.substr(0, x.length+2);
     }))
-    .pipe(gulp.dest("build"))
+    .pipe(gulp.dest('build'))
     .on('end', function() {
-      gulp.src("doc/README.md")
-      .pipe(include({basepath: "build"}))
-      .pipe(gulp.dest("."));
+      gulp.src('doc/README.md')
+      .pipe(include({basepath: 'build'}))
+      .pipe(gulp.dest('.'));
     });
 });
 
@@ -134,7 +134,7 @@ gulp.task('test-unit', function () {
       useColors: false}));
 });
 
-gulp.task('test-dom', ["build-test"], function () {
+gulp.task('test-dom', ['build-test'], function () {
   return gulp
   .src('test/index.html')
   .pipe(mochaPhantomJS());
@@ -149,7 +149,7 @@ gulp.task('build-test',['init'], function() {
   b.add('./test/dom/index');
 
   return b.bundle()
-    .pipe(source("test.js"))
+    .pipe(source('test.js'))
     .pipe(chmod(644))
     .pipe(gulp.dest(buildDir));
 });
@@ -191,7 +191,7 @@ gulp.task('watch', function() {
   b = browserify({
     debug: true,
     hasExports: true,
-    standalone: "biojs-vis-gprofiler",
+    standalone: 'biojs-vis-gprofiler',
     cache: {},
     packageCache: {},
   });
@@ -201,18 +201,18 @@ gulp.task('watch', function() {
 
   function rebundle(ids){
     b.bundle()
-    .on("error", function(error) {
-      log(colors.red("Error: "), error);
+    .on('error', function(error) {
+      log(colors.red('Error: '), error);
     })
-    .pipe(source(outputFile + ".js"))
+    .pipe(source(outputFile + '.js'))
     .pipe(chmod(644))
     .pipe(gulp.dest(buildDir));
   }
 
   watcher = watchify(b);
-  watcher.on("update", rebundle)
-   .on("log", function(message) {
-      log("Refreshed:", message);
+  watcher.on('update', rebundle)
+   .on('log', function(message) {
+      log('Refreshed:', message);
   });
 
   return rebundle();
