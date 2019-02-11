@@ -8,6 +8,8 @@
 
 var chai = require('chai');
 var biojsvisgprofiler = require('../../lib/biojsvisgprofiler');
+var data = require('../data');
+
 var assert = chai.assert;
 
 // Test suite
@@ -15,14 +17,10 @@ var assert = chai.assert;
 describe('biojs-vis-gprofiler module', function(){
   this.timeout(30000);
 
-  var renderopts = {
-    organism : 'scerevisiae',
-    query : 'swi4 swi6 mbp1 mcm1 fkh1 fkh2 ndd1 swi5 ace2'
-  };
-
   it('should render words', function(done){
     var gp = new biojsvisgprofiler({
       container : '#mocha',
+      showLogo  : false,
       warnings  : false
     });
 
@@ -31,14 +29,15 @@ describe('biojs-vis-gprofiler module', function(){
       assert.ok(n_text_els >= 5, 'At least 5 text elements rendered');
       done();
     });
-
-    gp.render(renderopts);
+    
+    gp.renderStored(data);
   });
 
   it('should render whole terms', function(done){
     var gp = new biojsvisgprofiler({
       container : '#mocha',
       useTerms  : true,
+      showLogo  : false,
       warnings  : false
     });
 
@@ -48,7 +47,7 @@ describe('biojs-vis-gprofiler module', function(){
       done();
     });
 
-    gp.render(renderopts);
+    gp.renderStored(data);
   });
 });
 
