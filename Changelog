@@ -2,6 +2,11 @@
 biojs-vis-gprofiler ChangeLog
 -----------------------------
 
+v0.6.0:
+
+- GProfiler has been migrated to g:Profiler 2 API and introduces some breaking
+  API changes. See compatibility notes in the README.
+
 v0.5.0:
 
 - Added the `scorer` parameter to BioJSVisGProfiler constructor to specify a

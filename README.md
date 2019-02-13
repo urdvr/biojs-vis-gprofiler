@@ -51,6 +51,31 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
 </script>
 ```
 
+## Compatibility notes
+
+Note that version 0.6.0 of biojs-vis-gprofiler introduces some breaking changes
+to the API of the `GProfiler` class and therefore to the parameters accepted by
+`bioJSVisGProfiler.render`. This is due to migrating to g:Profiler 2 API and
+dropping support for legacy g:Profiler.
+
+The following parameters have been removed:
+
+* `hierFiltering` - no longer supported
+* `maxPValue` - replaced by the similar `userThreshold` parameter
+* `maxSetSize` - no longer supported
+* `minSetSize` - no longer supported
+* `regionQuery` - region symbols are now detected automatically
+* `sortByStructure` - no longer supported
+
+The following changes have been made in the returned data structure by fields:
+
+* `domain` - The set of possible values is different: these are now source IDs
+  as accepted by `srcFilter`; except in the case of GO whose subset is still
+  {`BP`, `CC`, `MF`} for backward compatibility.
+* `subgraph` - Always 1.
+* `depth` - Always 1.
+* `intersection` - Always an empty array.
+
 ## Documentation
 
 ### Index
@@ -217,7 +242,7 @@ Construct a GProfiler object.
 
 <a name="GProfiler#query"></a>
 #### gProfiler.query(attrs, cb)
-Query g:Profiler.
+Query g:Profiler. See also _Compatibility notes_ above.
 
 **Params**
 
@@ -238,16 +263,11 @@ Fields of _attrs_:
 - significant `boolean` - Only return statistically significant
  results. _default_: true  
 - orderedQuery `boolean` - Ordered query. _default_: false.  
-- regionQuery `boolean` - The query consists of chromosomal
- regions. _default_: false.*  
 - excludeIEA `boolean` - Exclude electronic GO annotations.
  _default_: false.  
 - underrep `boolean` - Measure underrepresentation. _default_: false.  
-- hierFiltering `String` - Hierarchical filtering, one of "none",
- "moderate", "strong". _default_: none.  
-- maxPValue `float` - Custom p-value threshold. _default_: 1.0.  
-- minSetSize `int` - Minimum size of functional category.  
-- maxSetSize `int` - Maximum size of functional category.  
+- userThreshold `float` - Custom significance threshold.
+ Defaults to 0.05 in g:Profiler.  
 - correctionMethod `String` - Algorithm used for determining the
  significance threshold, one of "gSCS", "fdr", "bonferroni". _default_:
  "gSCS".  

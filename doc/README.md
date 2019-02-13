@@ -51,6 +51,31 @@ require(['/path/to/biojsvisgprofiler.min.js'], function(biojsVisGprofiler) {
 </script>
 ```
 
+## Compatibility notes
+
+Note that version 0.6.0 of biojs-vis-gprofiler introduces some breaking changes
+to the API of the `GProfiler` class and therefore to the parameters accepted by
+`bioJSVisGProfiler.render`. This is due to migrating to g:Profiler 2 API and
+dropping support for legacy g:Profiler.
+
+The following parameters have been removed:
+
+* `hierFiltering` - no longer supported
+* `maxPValue` - replaced by the similar `userThreshold` parameter
+* `maxSetSize` - no longer supported
+* `minSetSize` - no longer supported
+* `regionQuery` - region symbols are now detected automatically
+* `sortByStructure` - no longer supported
+
+The following changes have been made in the returned data structure by fields:
+
+* `domain` - The set of possible values is different: these are now source IDs
+  as accepted by `srcFilter`; except in the case of GO whose subset is still
+  {`BP`, `CC`, `MF`} for backward compatibility.
+* `subgraph` - Always 1.
+* `depth` - Always 1.
+* `intersection` - Always an empty array.
+
 ## Documentation
 
 @@include('./docs.md')
