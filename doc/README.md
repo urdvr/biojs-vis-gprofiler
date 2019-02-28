@@ -76,7 +76,7 @@ The following changes have been made in the returned data structure by fields:
 * `depth` - Always 1.
 * `intersection` - Always an empty array.
 
-In addition, the `logoHttpPost` has been removed from the BioJSVisGProfiler
+In addition, the `logoHttpPost` has been removed from the `BioJSVisGProfiler`
 constructor parameters, as g:Profiler 2 does not support HTTP POST requests
 outside its API.
 
