@@ -76,6 +76,10 @@ The following changes have been made in the returned data structure by fields:
 * `depth` - Always 1.
 * `intersection` - Always an empty array.
 
+In addition, the `logoHttpPost` has been removed from the BioJSVisGProfiler
+constructor parameters, as g:Profiler 2 does not support HTTP POST requests
+outside its API.
+
 ## Documentation
 
 ### Index
@@ -143,8 +147,6 @@ _default_: 300
  g:Profiler logo at the bottom right.  
 - showInfo `boolean` - Set to false to suppress displaying the
  default tooltip upon clicking a string.  
-- logoHttpPost `boolean` - Set to true to use a HTTP POST request
- to g:Profiler upon clicking the logo at the bottom right.  
 - sizer <code>[renderCb](#renderCb)</code> - Callback function returning the point size of a
  string.  
 - colorer <code>[renderCb](#renderCb)</code> - Callback function returning the color of a
@@ -366,7 +368,7 @@ If you have any problems or a suggestion please open an issue
 
 The BSD License
 
-Copyright (c) 2014, Tambet Arak
+Copyright (c) 2014-2019, Tambet Arak
 
 All rights reserved.
 
